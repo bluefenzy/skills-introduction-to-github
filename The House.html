@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House of A - Graph Plotter</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Main Body */
+        body {
+            background-image: url('https://th.bing.com/th/id/OIP.yoS5SUNcfjiYmPsvkT4feAHaEK?w=299&h=180&c=7&r=0&o=5&dpr=1.1&pid=1.7'); /* Replace with your background image */
+            background-size: cover;
+            background-position: center;
+            color: #f5f5f5;
+            font-family: 'Garamond', serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            min-height: 100vh;
+            overflow: hidden;
+            backdrop-filter: brightness(0.6);
+        }
+
+        /* Main Container */
+        .container {
+            text-align: center;
+            max-width: 600px;
+            padding: 25px;
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid crimson;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(139, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+        
+        .title {
+            color: crimson;
+            font-size: 3em;
+            text-shadow: 2px 2px 8px #000;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .subtitle {
+            color: #bbb;
+            font-size: 1.2em;
+            font-weight: 300;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        /* Button Styling */
+        .plot-btn {
+            margin-top: 20px;
+            padding: 12px 30px;
+            background-color: crimson;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .plot-btn:hover {
+            background-color: #660000;
+            transform: scale(1.05);
+            box-shadow: 0 0 10px crimson;
+        }
+
+        /* Graph Area */
+        #plot {
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            margin: 20px auto;
+        }
+    </style>
+    <!-- Include Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">House of A</h1>
+        <p class="subtitle">"Where elegance meets enigma..."</p>
+
+        <!-- Input for x and y values -->
+        <input type="text" id="xValues" placeholder="Enter x values separated by commas" style="width: 90%; padding: 10px; margin-bottom: 10px;">
+        <input type="text" id="yValues" placeholder="Enter y values separated by commas" style="width: 90%; padding: 10px; margin-bottom: 10px;">
+        
+        <!-- Button to Plot Graph -->
+        <button class="plot-btn" onclick="plotGraph()">Plot Graph</button>
+    </div>
+
+    <!-- Graph Area -->
+    <div id="plot"></div>
+
+    <script>
+        function plotGraph() {
+            // Get x and y values from inputs
+            const xInput = document.getElementById("xValues").value.trim();
+            const yInput = document.getElementById("yValues").value.trim();
+
+            // Convert input strings to arrays of numbers
+            const x = xInput.split(",").map(value => parseFloat(value.trim()));
+            const y = yInput.split(",").map(value => parseFloat(value.trim()));
+
+            // Check if x and y arrays are of the same length and contain valid numbers
+            if (x.length !== y.length || x.includes(NaN) || y.includes(NaN)) {
+                alert("Error: The number of x and y values must be the same and all values must be numbers.");
+                return;
+            }
+
+            // Define the data for the plot
+            const data = [{
+                x: x,
+                y: y,
+                mode: 'lines+markers', // Lines with markers
+                marker: { color: 'crimson', size: 8 },
+                line: { color: '#660000', width: 2 },
+                name: 'Data Line'
+            }];
+
+            // Define the layout for the plot
+            const layout = {
+                title: {
+                    text: "Graph Representation of x and y Values",
+                    font: { color: '#f5f5f5', size: 20 }
+                },
+                plot_bgcolor: "rgba(18, 18, 18, 0.8)",
+                paper_bgcolor: "rgba(18, 18, 18, 0.8)",
+                xaxis: { title: 'X Values', color: '#f5f5f5' },
+                yaxis: { title: 'Y Values', color: '#f5f5f5' },
+                margin: { t: 50, l: 50, r: 50, b: 50 },
+                font: { color: '#f5f5f5' },
+                showlegend: false
+            };
+
+            // Render the plot
+            Plotly.newPlot('plot', data, layout);
+        }
+    </script>
+</body>
+</html>

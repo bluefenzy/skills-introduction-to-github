@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HYPO - Physics Department</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f4f8;
+            background-image: url('https://i.pinimg.com/originals/b9/8f/b1/b98fb1cb16fc0dfe8a15f0a3d018552e.gif');
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background: rgba(0, 102, 204, 0.9);
+            color: #fff;
+            padding: 2rem;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: slideIn 1s ease-out;
+            transition: background-color 0.3s ease;
+        }
+
+        header:hover {
+            background-color: rgba(0, 77, 153, 0.9);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            animation: bounceIn 1s ease-out;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        section {
+            padding: 3rem;
+            text-align: center;
+            animation: fadeInUp 1s ease-in-out;
+            width: 100%;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #00796b;
+            text-shadow: 0 0 10px #b3e5fc;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(38, 166, 154, 0.9) 0%, rgba(33, 150, 243, 0.9) 100%);
+            margin: 1rem auto;
+            padding: 1rem;
+            width: 80%;
+            max-width: 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            animation: zoomIn 0.5s ease-in-out;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            color: #fff;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.9) 0%, rgba(38, 166, 154, 0.9) 100%);
+        }
+
+        .project-card a {
+            text-decoration: none;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        .project-card:hover a {
+            color: #333;
+        }
+
+        button {
+            background: #00796b;
+            color: #fff;
+            border: none;
+            padding: 1rem 2rem;
+            cursor: pointer;
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            animation: pulse 2s infinite;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background: #004d40;
+            transform: scale(1.1);
+        }
+
+        footer {
+            background: rgba(0, 102, 204, 0.9);
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounceIn {
+            0%, 20%, 40%, 60%, 80%, 100% {
+                animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+            }
+            0% {
+                opacity: 0;
+                transform: translateY(-3000px);
+            }
+            60% {
+                opacity: 1;
+                transform: translateY(-20px);
+            }
+            80% {
+                transform: translateY(10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .project-card:before {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .project-card h3:before {
+            content: '⚛';
+            display: inline-block;
+            margin-right: 0.5rem;
+            color: #00796b;
+        }
+
+        .glowing-border {
+            position: relative;
+            border: 2px solid #80deea;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #80deea;
+        }
+
+        .glowing-border:before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            bottom: -4px;
+            left: -4px;
+            border: 2px solid rgba(128, 222, 234, 0.6);
+            border-radius: 8px;
+            filter: blur(8px);
+        }
+    </style>
+</head>
+<body>
+    <header class="glowing-border">
+        <h1>PHYSICS DEPARTMENT</h1>
+        <p>Access the Path to Learn How the World Works</p>
+    </header>
+
+    <section id="Science">
+        <h2>PHYSICS BASE</h2>
+        <div class="project-card glowing-border">
+            <h3>Physics</h3>
+            <p><a href="https://youtu.be/b1t41Q3xRM8?si=NoU6OD-Rhttvd_FY">Basics</a></p>
+        </div>
+        <div class="project-card glowing-border">
+            <h3>Physics</h3>
+            <p><a href="https://youtu.be/--tPQ4iui1c?si=k6iF2Gzz-bAtWs31">Light Basics</a></p>
+        </div>
+        <div class="project-card glowing-border">
+            <h3>Physics</h3>
+            <p><a href="https://youtu.be/r-SCyD7f_zI?si=0y5UZ8AwiBMhXZRq">Electricity I</a></p>
+        </div>
+        <div class="project-card glowing-border">
+            <h3>Physics</h3>
+            <p><a href="https://youtu.be/R-Zjf90fkME?si=bYujgSwEPPzr1E9r">Electricity II</a></p>
+        </div>
+        <div class="project-card glowing-border">
+            <h3>Physics</h3>
+            <p><a href="https://youtu.be/lUhJL7o6_cA?si=616Y7eF4jnvRq7TU">Nuclear Physics I</a></p>
+        </div>
+       
+
+        <div class="project-card glowing-border">
+            <h3>Physics</h3>
+            <p><a href="https://youtu.be/m3dpUk1emms?si=1LOA--G5yubiKrcn">Nuclear Physics II</a></p>
+        </div>
+        <div class="project-card glowing-border">
+            <h3>Physics</h3>
+            <p><a href="https://youtu.be/NyOYW07-L5g?si=zBfzf3Md5PYO75cu">1st Law of Thermodynamics</a></p>
+        </div>
+        <button class="glowing-border"><p><a href="https://en.wikipedia.org/wiki/Logic_gate">Logic gates</a></p></button>
+    </section>
+
+    <footer class="glowing-border">
+        <p>&copy; 2024 HYPO. All rights reserved.</p>
+    </footer>
+</body>
+</html>

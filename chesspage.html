@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HYPO</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    background-image: url('https://www.thesprucecrafts.com/thmb/OBD6rGsC6ZdDqOznHL4B1Q7CuCc=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/your-first-chess-tournament-611569-FINAL-58dd58c61d0c4bb1977cba3660fbe591.gif');
+	 background-size: cover;
+            background-repeat: no-repeat;
+    color: #333;
+    overflow-x: hidden;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    animation: slideIn 1s ease-in-out;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    transition: color 0.3s ease;
+}
+
+header h1:hover {
+    color: #50C878; 
+    text-shadow: 0 0 10px #50C878;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+}
+
+section {
+    padding: 2rem;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+    animation: fadeInUp 1s ease-in-out;
+    transition: color 0.3s ease;
+}
+
+section h2:hover {
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.8);
+    margin: 1rem auto;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 400px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.project-card:hover {
+    transform: scale(1.05) rotate(3deg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #ffccff, #ccffff); 
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 255, 255, 0.3);
+    transition: left 0.5s ease;
+}
+
+.project-card:hover::before {
+    left: 0;
+}
+
+.project-card h3 {
+    margin-top: 0;
+}
+
+.project-card p a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    z-index: 1;
+    position: relative;
+}
+
+.project-card p a:hover {
+    color: #000000; 
+    text-shadow: 0 0 10px #000000;
+}
+
+form {
+    background: rgba(255, 255, 255, 0.8);
+    margin: 1rem auto;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 400px;
+    animation: zoomIn 0.5s ease-in-out;
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    border-color: #000000; 
+    box-shadow: 0 0 10px #000000;
+}
+
+button {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    background: #000000; 
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #000000;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>CHESS DEPARTMENT</h1>
+        <p>Chess is half memorisation and half intelligence</p>
+    </header>
+
+    <section id="Science">
+        <h2>CHESS BASE</h2>
+        <div class="project-card">
+            <h3>CHESS</h3>
+            <p><a href="https://youtu.be/OCSbzArwB10?si=lmETRTUBuZD8jN_f">Basics</a></p>
+        </div>
+        <div class="project-card">
+            <h3>CHESS</h3>
+            <p><a href="https://youtu.be/6IegDENuxU4?si=0KjK2DFBjklF_MJi">Openings</a></p>
+        </div>
+        <div class="project-card">
+            <h3>CHESS</h3>
+            <p><a href="https://youtu.be/F98JdnLyUXA?si=RBnKftW9BeLkyCt9">Middlegames</a></p>
+        </div>
+      
+        <div class="project-card">
+            <h3>CHESS</h3>
+            <p><a href="https://youtu.be/9Ga9dP3bvN8?si=Y24NajqLz0M2ik2a">Learn to calculate</a></p>
+        </div>
+		 <div class="project-card">
+            <h3>CHESS</h3>
+            <p><a href="https://youtu.be/mCsc24k-Q8M?si=rNP_unT6eofGOGbb">Endgame </a></p>
+        </div>
+		 <div class="project-card">
+            <h3>CHESS</h3>
+            <p><a href="https://youtu.be/nXyJdetptXg?si=imjTks8_f3d_yM3r">Advanced </a></p>
+        </div>
+    </section>
+	 <footer>
+        <p>&copy; 2024 HYPO. All rights reserved.</p>
+    </footer>
+</body>
+</html>
